@@ -182,5 +182,5 @@ The application's theme and parameters are managed strictly in `client/src/index
 
 ---
 
-## 📝 License
-This project is open-source and free for developers to use and build upon. Happy Tasking! 🚀
+## License
+This project is build by Rizwan Khan for practicing crud operations.

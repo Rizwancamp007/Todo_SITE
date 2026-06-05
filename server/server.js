@@ -12,10 +12,29 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ── CORS ────────────────────────────────────────────────────────────────────
+const allowedOrigins = [
+  'http://localhost:5173',          // Vite dev
+  'http://localhost:3000',          // alt dev port
+  process.env.CLIENT_URL,           // set this in Render env vars to your Vercel URL
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow server-to-server (no origin) or whitelisted origins
+      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+      // Also allow any vercel.app subdomain dynamically
+      if (/\.vercel\.app$/.test(origin)) return callback(null, true);
+      callback(new Error(`CORS: origin ${origin} not allowed`));
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
-app.use(morgan('dev'));
+// Only log HTTP requests in development
+if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 // Routes
 app.use('/api/todos', todoRoutes);

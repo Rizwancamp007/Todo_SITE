@@ -24,7 +24,9 @@ export default function Sidebar({ isOpen, onClose }) {
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         {/* Top accent line */}
         <div className="sidebar-logo">
-          <div className="sidebar-logo-icon">/logo.png</div>
+          <div className="sidebar-logo-icon">
+            <img src="/public/logo.png" alt="TaskFlow Logo" />
+          </div>
           <span className="sidebar-logo-text">TaskFlow</span>
           <span className="sidebar-logo-badge">v1.0</span>
         </div>

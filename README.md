@@ -182,5 +182,6 @@ The application's theme and parameters are managed strictly in `client/src/index
 
 ---
 
-## License
-This project is build by Rizwan Khan for practicing crud operations.
+## 📝 License
+This project is built with ☕ & 💓 by Rizwan Khan ©️ 2026
+
